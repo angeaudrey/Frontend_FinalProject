@@ -1,1 +1,62 @@
-<p>troc works!</p>
+
+
+ <mat-stepper  #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Je Recherche</ng-template>
+      <mat-form-field apparence="legacy">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Nom de l'article" formControlName="firstCtrl" required>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea name="description" matInput required></textarea>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field class="input-field">
+      <mat-label>Valeur</mat-label>
+      <input matInput placeholder="Valeur de l'article" formControlName="firstCtrl" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="input-field">
+      <mat-label>Année de Fabrication</mat-label>
+      <input matInput placeholder="Année de fabrication" formControlName="firstCtrl" required>
+    </mat-form-field>
+    <br>
+
+
+    <mat-form-field apparence="legacy">
+      <!-- <mat-label>Nom</mat-label> -->
+      <input matInput placeholder="Nom de l'article" formControlName="firstCtrl" required>
+    </mat-form-field>
+    <br>
+    <div>
+      <button mat-button matStepperNext> Suivant</button>
+    </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Fill out your address" errorMessage="Adress is required">
+    <form [formGroup]="secondFormGroup">
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York,NY" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+
+ </mat-stepper>
